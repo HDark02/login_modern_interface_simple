@@ -1,0 +1,158 @@
+MDScreen:
+    name: "login_page"
+    user_name:user_name
+    sign_up_text:sign_up_text
+    user_password:user_password
+    or_social_text:or_social_text
+    MDFloatLayout:
+        md_bg_color : 117/255, 121/255, 123/255, 1
+        pos_hint: {"center_x": .5, "center_y": .5}
+        MDIconButton:
+            icon: "arrow-left"
+            pos_hint: {"center_x": .05, "center_y": .95}
+            theme_text_color: "Custom"
+            text_color: "white"
+            halign: "center"
+            font_size: "25sp"
+            size_hint: .2, .07
+            on_release: app.back()
+        MDLabel:
+            text: "Back"
+            pos_hint: {"center_x": .12, "center_y": .95}
+            theme_text_color: "Custom"
+            text_color: "white"
+            halign: "center"
+            font_size: "15sp"
+            size_hint: .15, .07
+        MDLabel:
+            id: title_enter
+            text: "bien de vous revoir".upper()
+            theme_text_color: "Custom"
+            text_color: "white"
+            pos_hint: {"center_x": .5, "center_y": .85}
+            halign: "center"
+            bold: True
+            font_size: "25sp"
+        MDLabel:
+            id: title_enter
+            text: "s'enregister".upper()
+            theme_text_color: "Custom"
+            text_color: "orange"
+            pos_hint: {"center_x": .5, "center_y": .7}
+            halign: "center"
+            bold: True
+            opacity: 0.7
+            font_size: "25sp"
+        Input_cart:
+            id: user_name
+            hint_text: "Nom d'utilisateur"
+            pos_y: .6
+        MDIcon:
+            icon: "account"
+            halign: "right"
+            theme_text_color: "Custom"
+            text_color: "blue"
+            pos_hint: {"right": .9, "center_y": .6}
+            on_release:
+        Input_cart:
+            id: user_password
+            hint_text: "Mot de passe"
+            pos_y: .5
+            password: True
+        MDIconButton:
+            id: icon_eye
+            icon: "eye-off"
+            halign: "right"
+            theme_text_color: "Custom"
+            text_color: "blue"
+            pos_hint: {"right": .9, "center_y": .5}
+            on_release: user_password.password = not user_password.password
+        MDRaisedButton:
+            id: sign_up_text
+            text: "s'identifier".upper()
+            pos_hint: {"center_x": .5, "center_y": .35}
+            halign: "center"
+            font_size: "25sp"
+            bold: True
+            size_hint: .9, .07
+            theme_text_color: "Custom"
+            text_color: "white"
+            md_bg_color: 151/255, 121/255, 93/255, 1
+            on_release: app.login_now(root.user_name, root.user_password)
+        MDTextButton:
+            id: or_social_text
+            text: "ou s'identifier en utilisant un reseau social".upper()
+            theme_text_color: "Custom"
+            text_color: "white"
+            font_size: "15sp"
+            pos_hint: {"center_x": .5, "center_y": .28}
+            bold: True
+        MDFloatLayout:
+            size_hint: .8, .2
+            halign: "center"
+            pos_hint: {"center_x": .5, "center_y": .22}
+            MDIconButton:
+                icon: "facebook"
+                halign: "center"
+                md_bg_color: "white"
+                theme_text_color: "Custom"
+                text_color: "blue"
+                pos_hint: {"center_x": .3, "center_y": .5}
+                # size_hint: .25, .25
+            MDIconButton:
+                icon: "instagram"
+                halign: "center"
+                md_bg_color: "white"
+                # size_hint: .25, .25
+                pos_hint: {"center_x": .5, "center_y": .5}
+            MDIconButton:
+                icon: "google"
+                halign: "center"
+                md_bg_color: "blue"
+                theme_text_color: "Custom"
+                text_color: "white"
+                # ùd_bg_color_opacity: .5
+                # size_hint: .25, .25
+                pos_hint: {"center_x": .7, "center_y": .5}
+
+        MDProgressBar:
+            pos_hint: {"center_x": .5, "center_y": .17}
+            value: 100
+            size_hint: .5, None
+            halign: "center"
+            theme_text_color: "Custom"
+            color: "white"
+        MDTextButton:
+            text: "Je n'ai pas de compte"
+            theme_text_color: "Custom"
+            text_color: "white"
+            pos_hint: {"center_x": .3, "center_y": .1}
+            halign: "center"
+            font_size: "20sp"
+            on_release: app.sign_in()
+        MDTextButton:
+            text: "S'enregistrer".upper()
+            theme_text_color: "Custom"
+            text_color: "orange"
+            underline: True
+            pos_hint: {"center_x": .72, "center_y": .1}
+            halign: "center"
+            font_size: "20sp"
+            on_release: app.sign_in()
+
+<Input_cart@TextInput>:
+    id: a
+    pos_y: .1
+    hint_text: ""
+    size_hint: .9, None
+    height: self.minimum_height
+    padding: 18
+    password: False
+    theme_text_color: "Custom"
+    cursor_color: "black"
+    background_color: "gray"
+    hint_text_color: "white"
+    pos_hint: {"center_x": .5, "center_y": root.pos_y}
+    multiline: False
+    font_size: "20sp"
+    
