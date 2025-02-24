@@ -1,0 +1,82 @@
+MDScreen:
+    name: "welcome_page"
+    MDFloatLayout:
+        md_bg_color : 117/255, 121/255, 123/255, 1
+        MDLabel:
+            text: "Service Alpha"
+            theme_text_color: "Custom"
+            text_color: "white"
+            opacity: .45
+            font_style: "H5"
+            pos_hint: {"center_x": .5, "center_y": .9}
+            halign: "center"
+            bold: True
+        MDLabel:
+            id: welcome_text
+            text: "Bienvenue".upper()
+            theme_text_color: "Custom"
+            text_color: "white"
+            font_style: "H3"
+            size_hint: .9, .2
+            padding: 12
+            spacing: 10
+            pos_hint: {"center_x": .5, "center_y": .75}
+            halign: "center"
+            bold: True
+        
+        MDRaisedButton:
+            id: login_in_text
+            text: "S'identifier".upper()
+            pos_hint: {"center_x": .5, "center_y": .35}
+            halign: "center"
+            font_size: "25sp"
+            bold: True
+            size_hint: .9, .07
+            theme_text_color: "Custom"
+            text_color: "white"
+            md_bg_color: "gray"
+            on_release: app.login_up()
+        MDRaisedButton:
+            id: sign_up_text
+            text: "S'enregistrer".upper()
+            pos_hint: {"center_x": .5, "center_y": .25}
+            halign: "center"
+            font_size: "25sp"
+            bold: True
+            size_hint: .9, .07
+            theme_text_color: "Custom"
+            text_color: "white"
+            md_bg_color: 151/255, 121/255, 93/255, 1
+            on_release: app.sign_in()
+            
+        MDTextButton:
+            id: or_social_text
+            text: "ou s'identifier en utilisant un reseau social".upper()
+            theme_text_color: "Custom"
+            text_color: "white"
+            font_size: "15sp"
+            pos_hint: {"center_x": .5, "center_y": .15}
+            bold: True
+        MDFloatLayout:
+            size_hint: .8, .2
+            halign: "center"
+            pos_hint: {"center_x": .5, "center_y": .08}
+            MDIconButton:
+                icon: "facebook"
+                halign: "center"
+                md_bg_color: "white"
+                theme_text_color: "Custom"
+                text_color: "blue"
+                pos_hint: {"center_x": .3, "center_y": .5}
+            MDIconButton:
+                icon: "instagram"
+                halign: "center"
+                md_bg_color: "white"
+                pos_hint: {"center_x": .5, "center_y": .5}
+            MDIconButton:
+                icon: "google"
+                halign: "center"
+                md_bg_color: "blue"
+                theme_text_color: "Custom"
+                text_color: "white"
+                pos_hint: {"center_x": .7, "center_y": .5}
