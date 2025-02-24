@@ -1,0 +1,154 @@
+MDScreen:
+    name: "sign_in"
+    title_enter:title_enter
+    user_name:user_name
+    user_mail:user_mail
+    user_password:user_password
+    user_repassword_confirm:user_repassword_confirm
+    user_number: user_number
+    picture:picture
+    icon_add:icon_add
+    ajouter_photo:ajouter_photo
+    enr:enr
+    MDFloatLayout:
+        md_bg_color : 117/255, 121/255, 123/255, 1
+        pos_hint: {"center_x": .5, "center_y": .5}
+        MDIconButton:
+            icon: "arrow-left"
+            pos_hint: {"center_x": .05, "center_y": .95}
+            theme_text_color: "Custom"
+            text_color: "white"
+            halign: "center"
+            font_size: "25sp"
+            size_hint: .2, .07
+            on_release: app.back()
+        MDLabel:
+            text: "Back"
+            pos_hint: {"center_x": .12, "center_y": .95}
+            theme_text_color: "Custom"
+            text_color: "white"
+            halign: "center"
+            font_size: "15sp"
+            size_hint: .15, .07
+        MDLabel:
+            id: title_enter
+            text: "S'enregister".upper()
+            theme_text_color: "Custom"
+            text_color: "white"
+            pos_hint: {"center_x": .5, "center_y": .9}
+            halign: "center"
+            bold: True
+            font_size: "25sp"
+        FitImage:
+            id: picture
+            source: r" "
+            size_hint: None, None
+            size: "150dp", "150dp"
+            pos_hint: {"center_x": .5, "center_y": .8}
+            radius: [50,]
+        MDTextButton:
+            id: ajouter_photo
+            text: "Ajouter\nPhoto"
+            theme_text_color: "Custom"
+            text_color: "white"
+            pos_hint: {"center_x": .5, "center_y": .8}
+            halign: "center"
+            bold: True
+            font_size: "25sp"
+            on_release: app.add_picture()
+        MDIconButton:
+            id: icon_add
+            icon: "plus"
+            size_hint: None, None
+            pos_hint: {"center_x": .5, "center_y": .8}
+            on_release: app.add_picture()
+        Input_cart:
+            id: user_name
+            hint_text: "Nom d'utilisateur"
+            pos_y: .65
+        Input_cart:
+            id: user_mail
+            hint_text: "Email"
+            pos_y: .55
+        Input_cart:
+            id: user_password
+            hint_text: "Mot de passe"
+            pos_y: .45
+            password: True
+        MDIconButton:
+            icon: "eye-off"
+            halign: "right"
+            theme_text_color: "Custom"
+            text_color: "blue"
+            pos_hint: {"right": .9, "center_y": .45}
+            on_release: user_password.password = not user_password.password
+        Input_cart:
+            id: user_repassword_confirm
+            hint_text: "Confirmer le Mot de passe"
+            pos_y: .35
+            password: True
+        MDIconButton:
+            icon: "eye-off"
+            halign: "right"
+            theme_text_color: "Custom"
+            text_color: "blue"
+            pos_hint: {"right": .9, "center_y": .35}
+            on_release:  user_repassword_confirm.password = not user_repassword_confirm.password
+        Input_cart:
+            id: user_number
+            hint_text: "Numero de téléphone"
+            pos_y: .25
+        MDRaisedButton:
+            id: enr
+            text: "Enregister"
+            size_hint: .9, .07
+            font_size: "25sp"
+            theme_text_color: "Custom"
+            text_color: "white"
+            md_bg_color: 151/255, 121/255, 93/255, 1
+            bold: True
+            pos_hint: {"center_x": .5, "center_y": .15}
+            on_release: app.sigin_now(root.title, root.user_name, root.user_mail, root.user_password,root.password_confirm, root.user_number)
+        MDProgressBar:
+            pos_hint: {"center_x": .5, "center_y": .1}
+            value: 100
+            size_hint: .5, None
+            halign: "center"
+            theme_text_color: "Custom"
+            color: "white"
+        MDTextButton:
+            text: "J'ai un compte"
+            theme_text_color: "Custom"
+            text_color: "white"
+            pos_hint: {"center_x": .3, "center_y": .075}
+            halign: "center"
+            font_size: "20sp"
+            on_release: app.login_up()
+        MDTextButton:
+            text: "s'identifier".upper()
+            theme_text_color: "Custom"
+            text_color: "orange"
+            underline: True
+            pos_hint: {"center_x": .7, "center_y": .075}
+            halign: "center"
+            font_size: "20sp"
+            opacity: 1.5
+            on_release: app.login_up()
+
+
+
+<Input_cart@TextInput>:
+    id: ""
+    pos_y: .1
+    hint_text: ""
+    size_hint: .9, None
+    height: self.minimum_height
+    padding: 18
+    password: False
+    theme_text_color: "Custom"
+    cursor_color: "black"
+    background_color: "gray"
+    hint_text_color: "white"
+    pos_hint: {"center_x": .5, "center_y": root.pos_y}
+    multiline: False
+    font_size: "20sp"
